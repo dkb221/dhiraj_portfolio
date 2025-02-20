@@ -20,17 +20,27 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
     align-items: center;
+    padding: 15px 20px;
     background-color: #333;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 100;
 }
 
+/* Logo */
 .logo {
     font-size: 24px;
     font-weight: bold;
+    color: #ffffff;
+}
+.dot{
+    font-size: 3rem;
     color: #a855f7;
 }
 
+/* Navbar List */
 nav ul {
     display: flex;
     list-style: none;
@@ -51,44 +61,76 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #222;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
 /* Home Section */
 .hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 90vh;
-    padding: 50px;
+    padding: 80px 50px 50px;
     background-color: #0d0d0d;
 }
 
+/* Text Section */
 .content h1 {
-    font-size: 160px;
+    font-size: 4vw;
 }
 
 .name {
     color: #a855f7;
     font-weight: bold;
-    font-size: 60px;
+    font-size: 3vw;
 }
 
 .typed-text {
     color: #a855f7;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 2vw;
 }
 
-.cursor {
-    color: #a855f7;
-    font-size: 24px;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
+/* Floating Image */
+.image {
+    width: 50%;
+    animation: float 3s infinite ease-in-out;
 }
 
 .image img {
-    width: 1000px;
+    width: 100%;
+    max-width: 400px;
     animation: float 3s infinite ease-in-out;
 }
 
@@ -96,6 +138,32 @@ nav ul li a:hover {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
     100% { transform: translateY(0px); }
+}
+
+/* Responsive Hero */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 30px 30px;
+    }
+
+    .content h1 {
+        font-size: 8vw;
+    }
+
+    .name {
+        font-size: 6vw;
+    }
+
+    .typed-text {
+        font-size: 4vw;
+    }
+
+    .image {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 
 /* About Section */
@@ -155,43 +223,11 @@ nav ul li a:hover {
     color: #a855f7;
 }
 
-/* Portfolio Section */
-.portfolio {
-    padding: 50px;
-    background-color: #222;
-    text-align: center;
-}
-
-.portfolio h2 {
-    font-size: 32px;
-    color: #a855f7;
-    margin-bottom: 30px;
-}
-
-.portfolio-items {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.portfolio-item {
-    background-color: #444;
-    padding: 20px;
-    margin: 10px;
-    width: 30%;
-    text-align: center;
-    border-radius: 10px;
-}
-
-.portfolio-item img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.portfolio-item h3 {
-    font-size: 24px;
-    color: #a855f7;
+/* Responsive Projects */
+@media (max-width: 768px) {
+    .project {
+        width: 100%;
+    }
 }
 
 /* Footer */
@@ -213,7 +249,7 @@ footer {
         font-size: 28px;
     }
 
-    .project, .portfolio-item {
+    .project {
         width: 100%;
     }
 }
